@@ -76,7 +76,8 @@ class ADC16(object):
         return ret
 
 if __name__ == '__main__':
-    adc = ADC16('/dev/ttyUSB1')
+    # adc = ADC16('/dev/ttyUSB2')
+    adc = ADC16('/dev/serial/by-path/pci-0000:00:1d.0-usb-0:2:1.0-port0')
     parser = OptionParser()
     parser.add_option(
         '-v', '--voltage',
