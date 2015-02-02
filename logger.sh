@@ -1,7 +1,13 @@
 #!/bin/sh
 
-DATADIR=/home/gb/current_monitor/data
+CURRDIR=`pwd`
+DATADIR="${CURRDIR}/data"
 FILENAME=`date '+%Y%m%d%H%M%S'`
-CMD=/home/gb/current_monitor/adc.py
+CMD=${CURRDIR}/adc.py
+
+if [ ! -d "${CURRDIR}/data" ]; then
+    mkdir data
+    echo 'Make data/'
+fi
 
 ${CMD} | tee ${DATADIR}/${FILENAME}.dat
